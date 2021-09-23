@@ -1,5 +1,5 @@
 public class TwelveDaysOfChristmas {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String[] text = new String[]{
                 "Twelve drummers drumming",
                 "Eleven pipers piping",
@@ -14,12 +14,12 @@ public class TwelveDaysOfChristmas {
                 "Two turtle doves and",
                 "A partridge in a pear tree"};
         String[] days = new String[]{"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",
-                "elventh", "twelfth"};
+                "eleventh", "twelfth"};
 
         printSong(text, days, 0);
     }
 
-    public static void printSong(String[] text, String days[], int c) {
+    public static void printSong(String[] text, String[] days, int c) {
         if (c == 12) {
             return;
         }
