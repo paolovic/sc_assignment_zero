@@ -23,6 +23,7 @@ public class TwelveDaysOfChristmas {
         if (c == 12) {
             return;
         }
+        //I don't like this x
         int x = days.length - 1 - c;
         System.out.println("\nOn the " + days[c] + " day of Christmas\nMy true love sent to me:");
         for (int i = 0; i < c + 1; i++) {
