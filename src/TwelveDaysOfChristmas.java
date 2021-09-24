@@ -1,6 +1,5 @@
 public class TwelveDaysOfChristmas {
 
-    //Testkommentar
     
     public static void main(String[] args) {
         String[] text = new String[]{
