@@ -1,36 +1,41 @@
 public class TwelveDaysOfChristmas {
-
-    
     public static void main(String[] args) {
-        String[] text = new String[]{
-                "Twelve drummers drumming",
-                "Eleven pipers piping",
-                "Ten lords a-leaping",
-                "Nine ladies dancing",
-                "Eight maids a-milking",
-                "Seven swans a-swimming",
-                "Six geese a-laying",
-                "Five golden rings",
-                "Four calling birds",
-                "Three French hens",
-                "Two turtle doves and",
-                "A partridge in a pear tree"};
-        String[] days = new String[]{"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",
-                "eleventh", "twelfth"};
+        String[] gifts = new String[]{
+                "A partridge in a pear tree.",
+                "Two turtle doves,",
+                "Three French hens,",
+                "Four calling birds,",
+                "Five golden rings,",
+                "Six geese a-laying,",
+                "Seven swans a-swimming,",
+                "Eight maids a-milking,",
+                "Nine ladies dancing,",
+                "Ten lords a-leaping,",
+                "Eleven pipers piping,",
+                "Twelve drummers drumming,"
+        };
+        String[] days = new String[]{"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth"};
 
-        printSong(text, days, 0);
+        System.out.println(createPoem(days, gifts));
     }
 
-    public static void printSong(String[] text, String[] days, int c) {
-        if (c == 12) {
-            return;
+    private static String firstLine(int day, String[] days) {
+        return "On the " + days[day] + " day of Christmas,\nmy true love sent to me\n";
+    }
+
+    private static String remainingLines(int day, String[] gifts) {
+        if (day == 0) {
+            return "And " + gifts[day];
+        } else {
+            return gifts[day] + "\n" + remainingLines(day - 1, gifts);
         }
-        int x = days.length - 1 - c;
-        System.out.println("\nOn the " + days[c] + " day of Christmas\nMy true love sent to me:");
-        for (int i = 0; i < c + 1; i++) {
-            System.out.println(text[x]);
-            x++;
+    }
+
+    private static String createPoem(String[] days, String[] gifts) {
+        String poem = firstLine(0, days) + gifts[0] + "\n\n";
+        for (int day = 1; day < days.length; day++) {
+            poem += firstLine(day, days) + remainingLines(day, gifts) + "\n\n";
         }
-        printSong(text, days, c + 1);
+        return poem;
     }
 }
